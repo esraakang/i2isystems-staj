@@ -27,11 +27,11 @@ Bu ödev kapsamında AWS (Amazon Web Services) üzerinde bir sanal makine (EC2 i
 
 ### EC2 Instance Özeti
 
-![EC2 Instance](./screenshots/ec2-instance-summary.png)
+![EC2 Instance](screenshots/ec2-instance-summary.png)
 
 ### Ping Testi Çıktısı
 
-![Ping Test](./screenshots/ping-test.png)
+![Ping Test](screenshots/ping-test.png)
 
 ---
 
