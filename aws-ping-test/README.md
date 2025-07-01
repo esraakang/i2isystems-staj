@@ -27,13 +27,15 @@ Bu ödev kapsamında AWS (Amazon Web Services) üzerinde bir sanal makine (EC2 i
 
 ### EC2 Instance Özeti
 
-![EC2 Instance](./ec2-instance-summary.png)
+
+![Ekran görüntüsü 2025-07-01 144631](https://github.com/user-attachments/assets/058e6214-c615-4aa0-8233-ac86757ee2b2)
 
 
 
 ### Ping Testi Çıktısı
+![Ekran görüntüsü 2025-07-01 144730](https://github.com/user-attachments/assets/48d262b1-f0a0-427d-844a-17d1a849a265)
 
-![Ping Test]
+
 
 ---
 
