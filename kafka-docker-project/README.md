@@ -77,7 +77,8 @@ docker logs yeniklasr-kafka-1
 
 **📷 Ekran Görüntüsü: docker ps sonucu (local)**
 
-> `screenshots/docker-ps-local.png`
+![docker-ps-local](https://github.com/user-attachments/assets/8b193a3b-8de4-4238-8ac9-b9addc97ac57)
+
 
 ---
 
@@ -91,7 +92,8 @@ ssh -i "staj-key.pem" ec2-user@<EC2-PUBLIC-IP>
 
 **📷 Ekran Görüntüsü: EC2 terminal girişi**
 
-> `screenshots/ec2-terminal-login.png`
+![ec2-terminal-login](https://github.com/user-attachments/assets/7fdb5d7c-0d81-44c5-80bb-465a2192344c)
+
 
 ### 🚚 Docker Versiyon Kontrol
 
@@ -109,7 +111,7 @@ sudo systemctl enable docker
 
 **📷 Ekran Görüntüsü: docker version (EC2)**
 
-> `screenshots/docker-version-ec2.png`
+![docker-version-ec2](https://github.com/user-attachments/assets/d52af062-ac89-4166-a203-37133e7c94d8)
 
 ### 🔧 docker-compose.yml Oluşturma
 
@@ -135,7 +137,8 @@ docker logs kafka-on-cloud-kafka-1
 
 **📷 Ekran Görüntüsü: docker ps sonucu (EC2)**
 
-> `screenshots/docker-ps-cloud.png`
+![docker-ps-cloud](https://github.com/user-attachments/assets/0bb24445-2078-48d7-89fc-0a3cabe964b6)
+
 
 ---
 
