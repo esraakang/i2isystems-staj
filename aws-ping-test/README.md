@@ -27,7 +27,7 @@ Bu ödev kapsamında AWS (Amazon Web Services) üzerinde bir sanal makine (EC2 i
 
 ### EC2 Instance Özeti
 
-![EC2 Instance]
+![EC2 Instance](screenshots/ec2-instance-summary.png)
 
 
 
