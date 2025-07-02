@@ -89,6 +89,8 @@ java -cp "hazelcast-java-example/libs/hazelcast-5.3.6.jar" com.hazelcast.core.se
 ```
 
 > 📸 *Ekran görüntüsü: Hazelcast sunucusu başarıyla başlatıldı.*
+![hazelcast_server](https://github.com/user-attachments/assets/5d325e19-9cad-440d-be21-4ae52eb36cca)
+
 
 ### 2. Kodları Derle
 
@@ -103,6 +105,8 @@ java -cp ".;hazelcast-java-example/libs/*;hazelcast-java-example" HazelcastClien
 ```
 
 > 📸 *Ekran görüntüsü: Person nesneleri console'a yazıldı (ilk ve son 5).*
+![map_read_result](https://github.com/user-attachments/assets/7a73eab9-ea27-4af1-9965-920b2a4b4c8d)
+
 
 ---
 
