@@ -43,7 +43,8 @@ hazelcast-docker-project/
 docker pull hazelcast/hazelcast:latest
 ```
 
-> 📸 ![Ekran görüntüsü 2025-07-02 131338](https://github.com/user-attachments/assets/336430c5-3e91-4f8a-a6a5-ed34eb22c71a)
+> 📸
+![Ekran görüntüsü 2025-07-02 131338](https://github.com/user-attachments/assets/336430c5-3e91-4f8a-a6a5-ed34eb22c71a)
 
 
 ### 🔹 Hazelcast Node Başlatma
@@ -78,7 +79,8 @@ Tarayıcıdan `http://localhost:8080` adresine giderek arayüzü açın.
 
 > ⚠️ `localhost` veya `127.0.0.1` kullanmak yerine `hazelcast-node` yazılmalıdır. Docker konteynerleri birbirine kendi adlarıyla bağlanır.
 
-> 📸 ![Ekran görüntüsü 2025-07-02 131518](https://github.com/user-attachments/assets/f29a9d67-a3c1-412c-9ffe-76384e1b0b34)
+> 📸
+![Ekran görüntüsü 2025-07-02 131518](https://github.com/user-attachments/assets/f29a9d67-a3c1-412c-9ffe-76384e1b0b34)
  — Başarılı bağlantı sonrası ekran
 
 ---
