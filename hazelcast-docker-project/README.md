@@ -30,9 +30,7 @@ hazelcast-docker-project/
 └── screenshots/
     ├── hazelcast-pull.png
     ├── hazelcast-node-ps.png
-    ├── mc-terminal.png
-    ├── mc-connect-error.png
-    ├── mc-connect-success.png
+    └── mc-connect-success.png
 ```
 
 ---
@@ -45,7 +43,8 @@ hazelcast-docker-project/
 docker pull hazelcast/hazelcast:latest
 ```
 
-> 📸 `screenshots/hazelcast-pull.png`
+> 📸 ![Ekran görüntüsü 2025-07-02 131338](https://github.com/user-attachments/assets/336430c5-3e91-4f8a-a6a5-ed34eb22c71a)
+
 
 ### 🔹 Hazelcast Node Başlatma
 
@@ -53,25 +52,18 @@ docker pull hazelcast/hazelcast:latest
 docker run --name hazelcast-node -d hazelcast/hazelcast:latest
 ```
 
-> 📸 `screenshots/hazelcast-node-ps.png`
+> 📸 ![Ekran görüntüsü 2025-07-02 125850](https://github.com/user-attachments/assets/5b48a7a2-8525-4243-ab74-29f66890d883)
+
 
 ---
 
 ## 🧭 2. Hazelcast Management Center Kurulumu
-
-### 🔹 Management Center İmajını İndirme
-
-```bash
-docker pull hazelcast/management-center:latest
-```
 
 ### 🔹 Yönetim Panelini Başlatma
 
 ```bash
 docker run --rm -p 8080:8080 hazelcast/management-center:latest
 ```
-
-> 📸 `screenshots/mc-terminal.png`
 
 Tarayıcıdan `http://localhost:8080` adresine giderek arayüzü açın.
 
@@ -86,17 +78,8 @@ Tarayıcıdan `http://localhost:8080` adresine giderek arayüzü açın.
 
 > ⚠️ `localhost` veya `127.0.0.1` kullanmak yerine `hazelcast-node` yazılmalıdır. Docker konteynerleri birbirine kendi adlarıyla bağlanır.
 
-> 📸 `screenshots/mc-connect-error.png` — İlk hatalı bağlantı
-
-> 📸 `screenshots/mc-connect-success.png` — Başarılı bağlantı sonrası ekran
-
----
-
-## 🧩 Hatalar ve Çözümleri
-
-| Hata                                      | Çözüm                                                       |
-| ----------------------------------------- | ----------------------------------------------------------- |
-| `Something went wrong! initialize` hatası | Yanlış IP (`localhost`) kullanımı. `hazelcast-node` yazıldı |
+> 📸 ![Ekran görüntüsü 2025-07-02 131518](https://github.com/user-attachments/assets/f29a9d67-a3c1-412c-9ffe-76384e1b0b34)
+ — Başarılı bağlantı sonrası ekran
 
 ---
 
