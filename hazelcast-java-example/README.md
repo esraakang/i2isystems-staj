@@ -22,8 +22,14 @@ i2isystems-staj/
 ├── hazelcast-java-example/
 │   ├── HazelcastClientApp.java
 │   └── Person.java
+├── screenshots/
+│   ├── hazelcast-server.jpg
+│   ├── map-read-result.jpg
+│   ├── structure.jpg
+│   └── terminal-output.jpg
 └── libs/
     └── hazelcast-5.3.6.jar
+
 ```
 
 ---
