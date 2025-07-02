@@ -33,6 +33,11 @@ kafka-java-example/
 ├── libs/
 │   └── kafka-clients-4.0.0.jar
 ├── docker-compose.yml
+├── screenshots/
+│   └── consumer-log.jpg
+    └── producer-log.jpg
+    └── topics-create.jpg
+    └── docker-ps.jpg
 ```
 
 ---
@@ -182,11 +187,14 @@ java -cp ".;kafka-java-example/libs/*;kafka-java-example" consumer.ConsumerApp
 
 ## 📈 Görsel Çıktılar (Ekran Görüntüleri)
 
-* ![Ekran görüntüsü 2025-07-02 153244](https://github.com/user-attachments/assets/d37ed0f2-240b-4f75-80f9-d530b265dcdd)
+* `docker ps` çıktısı (Kafka servisleri)
+![Ekran görüntüsü 2025-07-02 153244](https://github.com/user-attachments/assets/d37ed0f2-240b-4f75-80f9-d530b265dcdd)
 
-* ![Ekran görüntüsü 2025-07-02 153324](https://github.com/user-attachments/assets/e023c6bf-8d7b-4e02-8d4c-2e68eaeb2257)
+* Topic oluşturma çıktısı
+![Ekran görüntüsü 2025-07-02 153324](https://github.com/user-attachments/assets/e023c6bf-8d7b-4e02-8d4c-2e68eaeb2257)
 
-* ![Ekran görüntüsü 2025-07-02 153410](https://github.com/user-attachments/assets/247f4f4c-75f4-40ec-9b37-69c1c2c341ea)
+* Producer ve Consumer çalışma logları
+![Ekran görüntüsü 2025-07-02 153410](https://github.com/user-attachments/assets/247f4f4c-75f4-40ec-9b37-69c1c2c341ea)
 ![Ekran görüntüsü 2025-07-02 153422](https://github.com/user-attachments/assets/d6e75686-c3b1-4025-901b-0476118fa316)
 
 
