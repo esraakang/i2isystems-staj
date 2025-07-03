@@ -1,0 +1,5 @@
+com\example\swagger\service\CustomerService.class
+com\example\swagger\controller\CustomerController.class
+com\example\swagger\dto\CustomerDTO.class
+com\example\swagger\App.class
+com\example\swagger\SwaggerCrudApplication.class
