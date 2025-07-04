@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Kitaplar - Book API</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet"/>
+    <style>
+        body {
+            background: linear-gradient(135deg, #74ABE2, #5563DE);
+            min-height: 100vh;
+            color: #fff;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        .container {
+            background: #fff;
+            color: #333;
+            border-radius: 12px;
+            padding: 30px;
+            margin-top: 40px;
+            box-shadow: 0 12px 30px rgba(0,0,0,0.2);
+        }
+        .book-card {
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            cursor: pointer;
+        }
+        .book-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 40px rgba(85, 99, 222, 0.5);
+        }
+        .book-title {
+            font-weight: 700;
+            font-size: 1.25rem;
+            color: #3742fa;
+        }
+        .book-author {
+            font-style: italic;
+            color: #666;
+        }
+        .header-text {
+            font-weight: 700;
+            margin-bottom: 25px;
+            color: #5563DE;
+            text-align: center;
+        }
+        .btn-group {
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <h1 class="header-text" th:text="${appName}">Book API Application</h1>
+
+    <form id="book-form" class="mb-4">
+        <input type="hidden" id="book-id" />
+        <div class="mb-3">
+            <label for="title" class="form-label">Kitap Başlığı</label>
+            <input type="text" class="form-control" id="title" required />
+        </div>
+        <div class="mb-3">
+            <label for="author" class="form-label">Yazar</label>
+            <input type="text" class="form-control" id="author" required />
+        </div>
+        <button type="submit" class="btn btn-primary" id="submit-btn">Ekle</button>
+        <button type="button" class="btn btn-secondary" id="cancel-btn" style="display:none;">İptal</button>
+    </form>
+
+    <div class="row" id="book-list">
+        <!-- Kitap kartları buraya eklenecek -->
+    </div>
+</div>
+
+<script>
+    const apiRoot = '/api/books';
+    const form = document.getElementById('book-form');
+    const idField = document.getElementById('book-id');
+    const titleField = document.getElementById('title');
+    const authorField = document.getElementById('author');
+    const submitBtn = document.getElementById('submit-btn');
+    const cancelBtn = document.getElementById('cancel-btn');
+    const bookList = document.getElementById('book-list');
+
+    async function fetchBooks() {
+        try {
+            const res = await fetch(apiRoot);
+            const books = await res.json();
+            bookList.innerHTML = '';
+
+            if (books.length === 0) {
+                bookList.innerHTML = '<p class="text-center">Henüz kitap yok.</p>';
+                return;
+            }
+
+            books.forEach(book => {
+                const card = document.createElement('div');
+                card.className = 'col-md-4 mb-4';
+
+                card.innerHTML = `
+                    <div class="card book-card shadow-sm p-3 rounded">
+                        <div class="card-body">
+                            <h5 class="book-title">${book.title}</h5>
+                            <p class="book-author">Yazar: ${book.author}</p>
+                            <div class="btn-group">
+                                <button class="btn btn-sm btn-info edit-btn">Düzenle</button>
+                                <button class="btn btn-sm btn-danger delete-btn">Sil</button>
+                            </div>
+                        </div>
+                    </div>
+                `;
+
+                // Düzenleme butonuna tıklandığında formu doldur
+                card.querySelector('.edit-btn').addEventListener('click', () => {
+                    idField.value = book.id;
+                    titleField.value = book.title;
+                    authorField.value = book.author;
+                    submitBtn.textContent = 'Güncelle';
+                    cancelBtn.style.display = 'inline-block';
+                });
+
+                // Silme butonuna tıklandığında sil
+                card.querySelector('.delete-btn').addEventListener('click', async () => {
+                    if (confirm(`"${book.title}" kitabını silmek istediğine emin misin?`)) {
+                        await fetch(`${apiRoot}/${book.id}`, { method: 'DELETE' });
+                        fetchBooks();
+                        resetForm();
+                    }
+                });
+
+                bookList.appendChild(card);
+            });
+        } catch (error) {
+            console.error(error);
+            bookList.innerHTML = '<p class="text-danger text-center">Kitaplar yüklenirken hata oluştu.</p>';
+        }
+    }
+
+    // Form gönderildiğinde POST veya PUT yap
+    form.addEventListener('submit', async (event) => {
+        event.preventDefault();
+
+        const book = {
+            title: titleField.value.trim(),
+            author: authorField.value.trim()
+        };
+
+        if (idField.value) {
+            // Güncelleme
+            book.id = Number(idField.value);
+            const res = await fetch(`${apiRoot}/${book.id}`, {
+                method: 'PUT',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify(book)
+            });
+            if (res.ok) {
+                alert('Kitap başarıyla güncellendi!');
+            } else {
+                alert('Güncelleme sırasında hata oluştu.');
+            }
+        } else {
+            // Yeni ekleme
+            const res = await fetch(apiRoot, {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify(book)
+            });
+            if (res.ok) {
+                alert('Kitap başarıyla eklendi!');
+            } else {
+                alert('Kitap ekleme sırasında hata oluştu.');
+            }
+        }
+
+        fetchBooks();
+        resetForm();
+    });
+
+    // İptal butonu işlevi
+    cancelBtn.addEventListener('click', () => {
+        resetForm();
+    });
+
+    // Formu temizle ve düğmeleri sıfırla
+    function resetForm() {
+        idField.value = '';
+        titleField.value = '';
+        authorField.value = '';
+        submitBtn.textContent = 'Ekle';
+        cancelBtn.style.display = 'none';
+    }
+
+    window.onload = fetchBooks;
+</script>
+
+</body>
+</html>
