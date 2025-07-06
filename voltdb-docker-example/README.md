@@ -104,4 +104,4 @@ select * from mth3902;
 ---
 
 **Katkı:**
-Esra Kangal – Stajyer, 2025
+Esra Kanğ
