@@ -133,16 +133,6 @@ mvn exec:java -Dexec.mainClass="com.example.seleniumtest.LoginTest"
 
 ---
 
-## 📷 Ekran Görüntüsü
-
-Proje başarıyla çalıştığında login işlemi sonrası alınan ekran görüntüsü:
-
-```
-login_result.png
-```
-
-![login\_result](login_result.png)
-
 ---
 
 ## 🚫 Karşılaşılan Hatalar & Çözümler

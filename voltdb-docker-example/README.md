@@ -1,33 +1,31 @@
-VoltDB on Docker (Cloud & DBeaver Setup)
-Bu proje, VoltDB’yi hem AWS EC2 bulut ortamında Docker ile ayağa kaldırmayı, hem de DBeaver arayüzü üzerinden tablo işlemleri yapmayı amaçlamaktadır.
+# VoltDB on Docker (Cloud & DBeaver Setup)
 
-✨ Proje Hedefleri
+Bu proje, VoltDB’yi AWS EC2 bulut ortamında Docker ile ayağa kaldırmayı ve DBeaver arayüzüyle tablo işlemleri yapmayı amaçlar.
 
-AWS EC2 üzerinde Docker ile VoltDB kurulum ve çalıştırma
+---
 
-DBeaver ile uzak bağlantı ve SQL işlemleri (tablo oluşturma, veri ekleme, sorgu)
+✨ **Proje Hedefleri**
 
-Hatalarla mücadele (container durma, port hatası, driver problemleri)
+* AWS EC2 üzerinde Docker ile VoltDB kurulum & çalıştırma
+* DBeaver ile uzaktan bağlantı ve SQL işlemleri (tablo, veri ekleme, sorgu)
+* Hatalarla mücadele (container, port, driver, RAM sorunları)
+* Ekran görüntüleriyle tam dökümantasyon
 
-Ekran görüntüleriyle belgelenmiş tam süreç
+---
 
-🚀 Gereksinimler
+🚀 **Gereksinimler**
 
-AWS hesabı + EC2 Instance (Amazon Linux 2023)
+* AWS hesabı + EC2 Instance (Amazon Linux 2023, 1GB+ RAM)
+* Docker (ve docker-compose, opsiyonel)
+* Dış dünyaya açık 21212 portu (Security Group)
+* DBeaver (v25+)
+* SSH erişimi (.pem dosyası)
 
-Docker (ve docker-compose, opsiyonel)
+---
 
-Dış dünyaya açık 21212 portu (Security Group ayarı)
+📁 **Proje Dosya Yapısı**
 
-DBeaver (v25+), lokal makinede
-
-SSH erişimi (.pem anahtar dosyası)
-
-📁 Proje Dosya Yapısı
-
-pgsql
-Kopyala
-Düzenle
+```
 volt-db-cloud-demo/
 ├── docker-run-command.txt
 ├── README.md
@@ -37,40 +35,37 @@ volt-db-cloud-demo/
     ├── dbeaver-connection.png
     ├── dbeaver-tables.png
     └── dbeaver-query-result.png
-🖥️ 1. AWS EC2 ve Docker’da VoltDB Kurulumu
+```
 
-bash
-Kopyala
-Düzenle
-# Sunucuya SSH ile bağlan
+---
+
+🖥️ **1. AWS EC2 ve Docker’da VoltDB Kurulumu**
+
+```bash
 ssh -i "staj-key.pem" ec2-user@<EC2_PUBLIC_IP>
-
-# Docker ve Network
 docker rm volt
 docker network create voltLocalCluster
-
-# VoltDB Docker ile başlat
 docker run -d --name volt --network=voltLocalCluster -p 21212:21212 -p 8080:8080 -p 55004:55004 full360/docker-voltdb-ce
-📷 Ekran Görüntüsü: EC2 terminal ve docker ps çıktısı
+```
 
-🔗 2. DBeaver ile VoltDB Bağlantısı
+📷 *Ekran görüntüsü: EC2 terminal ve docker ps çıktısı*
 
-JDBC URL:
-jdbc:voltdb://<EC2_PUBLIC_IP>:21212
+---
 
-Driver JAR: Uyumlu bir voltdb-jdbc-*.jar dosyası
+🔗 **2. DBeaver ile VoltDB Bağlantısı**
 
-Class Name: org.voltdb.jdbc.Driver
+* **JDBC URL:**
+  `jdbc:voltdb://<EC2_PUBLIC_IP>:21212`
+* **Driver JAR:** Uyumlu `voltdb-jdbc-*.jar`
+* **Class Name:** `org.voltdb.jdbc.Driver`
 
-Test Connection: SUCCESS
+📷 *Ekran görüntüsü: DBeaver bağlantı ayarları ve test sonucu*
 
-📷 Ekran Görüntüsü: DBeaver bağlantı ayarları ve başarılı bağlantı testi
+---
 
-🗄️ 3. Tablo Oluşturma ve Veri Ekleme (DBeaver SQL Editörü)
+🗄️ **3. Tablo Oluşturma ve Veri Ekleme (DBeaver SQL Editörü)**
 
-sql
-Kopyala
-Düzenle
+```sql
 create table mth3902 (
   id bigint not null,
   start_date_epoch bigint,
@@ -83,26 +78,36 @@ insert into mth3902 ( id, start_date_epoch, create_user ) values ( 1, 1698295044
 insert into mth3902 ( id, start_date_epoch, create_user ) values ( 2, 1698295088, 'ERKUT');
 
 select * from mth3902;
+<<<<<<< HEAD
 📷 Ekran Görüntüsü: 
 
 
+=======
+```
+>>>>>>> 4d61a42abf6f59d2cf1bd2a94de5fbf826fd84a8
 
-🧑‍💻 Hatalar ve Çözümler
+📷 *Ekran görüntüsü:
 
-JDBC Driver Hatası: Doğru voltdb-jdbc jar dosyasını yükleyin.
+![Ekran görüntüsü 2025-07-06 234452](https://github.com/user-attachments/assets/19f37032-12d0-48cc-8289-d08ab6459200)
 
-Port veya Security Group Hatası: EC2’da 21212 portunun açık olduğundan emin olun.
 
-Container Exited (137): RAM düşükse instance tipini yükseltin (t3.medium önerilir).
+---
 
-📚 Kaynaklar
+🧑‍💻 **Hatalar ve Çözümler**
 
-VoltDB Quick Start
+* **JDBC Driver Hatası:** Doğru `voltdb-jdbc` jar dosyasını yükleyin.
+* **Port veya Security Group Hatası:** EC2’da 21212 portunun açık olduğundan emin olun.
+* **Container Exited (137):** RAM düşükse instance tipini büyütün (t3.medium önerilir).
 
-VoltDB JDBC Maven Repo
+---
 
-DBeaver Docs
+📚 **Kaynaklar**
 
-📅 Katkıda Bulunanlar
+* VoltDB Quick Start
+* VoltDB JDBC Maven Repo
+* DBeaver Docs
 
+---
+
+**Katkı:**
 Esra Kanğ
