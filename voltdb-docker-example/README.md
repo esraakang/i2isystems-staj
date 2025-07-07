@@ -83,7 +83,9 @@ insert into mth3902 ( id, start_date_epoch, create_user ) values ( 1, 1698295044
 insert into mth3902 ( id, start_date_epoch, create_user ) values ( 2, 1698295088, 'ERKUT');
 
 select * from mth3902;
-📷 Ekran Görüntüsü: DBeaver’da tablo oluşturma, veri ekleme ve select sonucu
+📷 Ekran Görüntüsü: 
+
+
 
 🧑‍💻 Hatalar ve Çözümler
 
