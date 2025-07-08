@@ -58,12 +58,6 @@ CREATE TABLE BOOK (
 
 ---
 
-## 🚀 Çalıştırmak için
-
-> Bu repo sadece belge ve SQL tanımı içermektedir. Oracle kurulumuna dair bilgi gerekiyorsa lütfen `docs/setup.md` dosyasına göz atın (isteğe bağlı olarak eklenebilir).
-
----
-
 ## 👩‍💻 Hazırlayan
 
 **Esra Kanğ**
