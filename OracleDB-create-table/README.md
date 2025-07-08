@@ -1,6 +1,6 @@
 # 📚 ORACLEDB-EX-03 — Oracle SQL Developer ile BOOK Tablosu Oluşturma
 
-Bu proje, Oracle SQL Developer üzerinden Oracle XE veritabanına bağlanarak `BOOK` isimli bir tablo olulanarak `BOOK` isimli bir tablo olu\u015kturmayı ve temel SQL komutlarının uygulanmasını kapsamaktadır. Proje, \[i2i Systems Summer Internship 2025] kapsamında verilen ORACLEDB-EX-03 adlı ödevin çözümdür.
+Bu proje, Oracle SQL Developer üzerinden Oracle XE veritabanına bağlanarak `BOOK` isimli bir tablo oluşturularak `BOOK` isimli bir tablo oluşturmayı ve temel SQL komutlarının uygulanmasını kapsamaktadır. Proje, \[i2i Systems Summer Internship 2025] kapsamında verilen ORACLEDB-EX-03 adlı ödevin çözümdür.
 
 ---
 
