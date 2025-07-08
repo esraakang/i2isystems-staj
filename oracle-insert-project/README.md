@@ -43,7 +43,9 @@ oracle-insert-project/
 
 🔹 `BookBatchInsert.java` dosyasında JDBC bağlantısı kurulmuş ve 100 kayıt hazırlanmıştır. Her kayıt için rastgele `NAME` ve `ISBN` oluşturulmuştur.
 
-📸 `bookbatchinsert-java-code.png` — Java dosyasının kod içeriği
+![bookbatchinsert-java-code](https://github.com/user-attachments/assets/5c5e1ecc-35e3-4efa-b3e0-576f54634585)
+
+
 
 ```java
 String sql = "INSERT INTO BOOK (ID, NAME, ISBN) VALUES (?, ?, ?)";
@@ -64,7 +66,7 @@ javac -cp ".;libs/*" BookBatchInsert.java
 java -cp ".;libs/*" BookBatchInsert
 ```
 
-📸 `bookbatchinsert-java-output.png` — Konsol çıktısı: `✅ 100 kayıt başarıyla eklendi.`
+![bookbatchinsert-java-output](https://github.com/user-attachments/assets/69cf8158-2afa-4175-acf8-9d11bab1d410)
 
 ---
 
@@ -78,7 +80,8 @@ SELECT * FROM BOOK;
 
 🔹 `ID`, `NAME`, `ISBN`, `CREATE_DATE` sütunlarıyla birlikte 100 kayıt başarıyla görüntülenmiştir.
 
-📸 `book-select-result.png` — SQL sorgu sonucu ekran görüntüsü
+![book-select-result](https://github.com/user-attachments/assets/8ad3f3c8-a732-4006-b4a4-ff35247eef81)
+
 
 ---
 
